@@ -9,6 +9,8 @@ import org.junit.runner.RunWith;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
+import com.alibaba.fastjson.JSON;
+
 import soy.maven.disk.pojo.User;
 import soy.maven.disk.service.IUserService;
 
@@ -26,8 +28,9 @@ public class TestMyBatis {
 	@Test
 	public void test1() {  
         User user = userService.getUserById(1);
-        System.out.println(user.getUserName());  
-        logger.info("值："+user.getUserName());
+     //   System.out.println(user.getUserName());  
+     //   logger.info("值："+user.getUserName());
+        logger.info(JSON.toJSONString(user));
 	}
 	   
 }
