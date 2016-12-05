@@ -11,7 +11,7 @@ public class GeneralController {
 	 public void index_jsp(Model model){ 
 	 System.out.println("index.jsp"); 
 	 } 
-
+    
 
 
 }
