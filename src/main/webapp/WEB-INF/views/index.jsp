@@ -16,11 +16,11 @@
 </head>
 
 <body>
-
-<input id="name" type="text"  class="aaa" >
-<input id='password' type="text"  >
-<input id='submit' type="button" onClick="click1()" class="vvv" value="提交">
-
+<form  method="post">
+<input name="username" type="text" value="123" >
+<input name="password" type="text" value="123" >
+<input type="submit" value="提交">
+</form>
 </body>
 
 
