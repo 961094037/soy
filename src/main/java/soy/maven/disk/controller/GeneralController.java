@@ -25,24 +25,17 @@ import soy.maven.disk.service.IUserService;
 
 @ContextConfiguration(locations = {"classpath:spring-mybatis.xml"})
 @Controller
+@RequestMapping(value="/index.do")
 public class GeneralController {
 	
 	private static Logger logger = Logger.getLogger(GeneralController.class);
 	
-	@RequestMapping(value="index.do") 
-	 public void index_jsp(Model model){ 
-	 } 
-	@RequestMapping(value="ok.do") 
-	 public void ok_jsp(Model model){ 
-	 } 
-	@RequestMapping(value="error.do") 
-	 public void no_jsp(Model model){ 
-	 } 
-     
+
+ 
 	@Resource	 
 	 private IUserService iUserService = null;
 	
-	 @RequestMapping(value="/index.do", method = RequestMethod.POST) 
+	 @RequestMapping(value="/insert.do",method = RequestMethod.POST)
 	 public String index_jsp(@RequestParam("username") String username ,@RequestParam("password") String password,Model model){ 
 	
 	 
@@ -52,10 +45,11 @@ public class GeneralController {
 	 if(username.equals(password))
 	 {
 		 
-		
+		 
 		 user2.setUserName(username);
 		 user2.setPassword(password);
-		 iUserService.insert(user2);
+	//	 iUserService.insert(user2);
+		 logger.info(JSON.toJSONString(user));
 		 model.addAttribute("username", username); 
 		 return "ok";
 	 }
@@ -72,3 +66,4 @@ public class GeneralController {
 //    
 
 }
+
