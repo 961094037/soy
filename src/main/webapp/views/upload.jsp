@@ -124,10 +124,10 @@
            如果它是一个字符串，它接受一个单位(B, KB, MB, or GB)。
             默认单位为KB您可以将此值设置为0 ，没有限制, 
              单个文件不允许超过所设置的值 如果超过 onSelectError时间被触发*/
-	//        'fileSizeLimit':'20MB',
+	        'fileSizeLimit':'20MB',
        
        //允许上传的文件的最大数量。当达到或超过这个数字，onSelectError事件被触发。
-	//        'queueSizeLimit' : 3
+	        'queueSizeLimit' : 3
            
 		});
 	});
