@@ -118,7 +118,7 @@
            'fileTypeDesc':'支持的格式：',
 
        		        //允许上传的文件后缀
-           'fileTypeExts':'*.jpg;*.jpge;*.gif;*.png'
+           'fileTypeExts':'*.jpg;*.jpge;*.gif;*.png',
            
            /*上传文件的大小限制允许上传文件的最大 大小。 这个值可以是一个数字或字 符串。
            如果它是一个字符串，它接受一个单位(B, KB, MB, or GB)。
