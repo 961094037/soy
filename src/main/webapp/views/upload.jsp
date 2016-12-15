@@ -63,15 +63,7 @@
 	//	            }
 	//	        },
 
-		        //上传到服务器，服务器返回相应信息到data里
-	//	        'onUploadSuccess':function(file, data, response){
-	//	            alert("上传成功");
-	//	        },
-
-		      //当单个文件上传出错时触发
-	//	        'onUploadError': function (file, errorCode, errorMsg, errorString) { 
-	//	        	alert("上传失败");
-	//	        	} 
+		       
 		    });
 
 		});
@@ -101,7 +93,7 @@
 	$(function() {
 		$('#file_upload').uploadify({
 			'swf'      : 'uploadify/uploadify.swf',
-			'uploader' : 'uploadify/uploadify.php',
+			'uploader' : '<%=request.getContextPath()%>/upload.do/uploadfile.do',
 			
 			//是否自动上传 true or false
 	//	    'auto':false
@@ -110,6 +102,15 @@
 	        //在此时间后，若服务器未响应，则默认为成功(因为已经上传,等待服务器的响应) 单位：秒
 	        'successTimeout':99999,
 			// Your options here
+			
+			//方法POST或者GET
+			'method' :'post',
+			
+			//将要上传的文件对象的名称 必须与后台controller中抓取的文件名保持一致    
+	        'fileObjName':'pic',
+			
+			//按钮文本
+			'buttonText':'选取文件',
 			
 			//文件选择后的容器div的id值 
            'queueID':'uploadfileQueue',
@@ -127,7 +128,18 @@
 	        'fileSizeLimit':'20MB',
        
        //允许上传的文件的最大数量。当达到或超过这个数字，onSelectError事件被触发。
-	        'queueSizeLimit' : 3
+	        'queueSizeLimit' : 3,
+	        
+	        
+	        //上传到服务器，服务器返回相应信息到data里
+	        'onUploadSuccess':function(file, data, response){
+	            alert("上传成功");
+	        },
+
+	      //当单个文件上传出错时触发
+	        'onUploadError': function (file, errorCode, errorMsg, errorString) { 
+	        	alert("上传失败");
+	        	} 
            
 		});
 	});

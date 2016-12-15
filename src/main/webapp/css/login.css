@@ -1,0 +1,19 @@
+@charset "utf-8";
+/* CSS Document */
+
+#mainbody{width:1200px;background-color:#666;margin-left:auto;margin-right:auto;
+	background-color:#8ED7CF;background-size:cover;height:650px;}
+#bodyhead{overflow:hidden;}
+#bodybody{position:relative;}
+.logo{float:left;margin-right:auto;margin-left:22px;margin-top:10px;}
+.textone{float:right;margin-left:auto;maigin-right:25px;margin-top:10px;}
+.mainbg{height:500px;}
+.mainlogin{position:absolute;margin-right:auto;margin-left:750px;margin-top:20px;
+	height:450px;width:350px;text-align:center;border:dotted #999999 thin;
+	background-color:transparent;border-radius:10px;background-color:rgba(231,231,231,0.25);}
+.footerfont{font-size:14px;padding:20px 0 40px 0;text-align:center;}
+.logintextone{font-size:16px;padding:0 16px;}
+.logintop{margin-top:70px;}
+.lgtext{margin:30px 0;border-radius:5px;border:hidden;width:200px;height:30px;}
+.btone{margin:60px 12px;width:100px;height:40px;border-radius:5px;background-color:#999;font-size:18px;border:thin hidden;}
+.warm{font-size:10px;color:#F00;}

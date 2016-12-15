@@ -8,14 +8,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class ModelController {
 	
 	
-	@RequestMapping(value="index.do") 
-	 public void index_jsp(Model model){ 
+	@RequestMapping(value="login.do") 
+	 public void login_jsp(Model model){ 
 	 } 
-	@RequestMapping(value="ok.do") 
-	 public void ok_jsp(Model model){ 
-	 } 
-	@RequestMapping(value="error.do") 
-	 public void no_jsp(Model model){ 
+	@RequestMapping(value="regist.do") 
+	 public void regist_jsp(Model model){ 
 	 } 
 	@RequestMapping(value="upload.do") 
 	 public void upload_jsp(Model model){ 

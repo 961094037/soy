@@ -23,47 +23,39 @@ import soy.maven.disk.TestMyBatis;
 import soy.maven.disk.pojo.User;
 import soy.maven.disk.service.IUserService;
 
-@ContextConfiguration(locations = {"classpath:spring-mybatis.xml"})
+
 @Controller
-@RequestMapping(value="/index.do")
-public class GeneralController {
+@RequestMapping(value="/login.do")
+public class LoginController {
 	
-	private static Logger logger = Logger.getLogger(GeneralController.class);
+	private static Logger logger = Logger.getLogger(LoginController.class);
 	
 
  
 	@Resource	 
 	 private IUserService iUserService = null;
 	
-	 @RequestMapping(value="/insert.do",method = RequestMethod.POST)
-	 public String index_jsp(@RequestParam("username") String username ,@RequestParam("password") String password,Model model){ 
-	
 	 
-	 User user = iUserService.getUserById(1);
-	 User user2 =new User();
-	 	 
-	 if(username.equals(password))
-	 {
-		 
-		 
-		 user2.setUserName(username);
-		 user2.setPassword(password);
-	//	 iUserService.insert(user2);
-		 logger.info(JSON.toJSONString(user));
-		 model.addAttribute("username", username); 
-		 return "ok";
-	 }
-	 else
-	 {
-		 return "error";
-	 }
-	 } 
-    
+@RequestMapping(value="/regist.do",method = RequestMethod.POST)
+public String regist(@RequestParam("username") String username ,@RequestParam("password") String password,@RequestParam("tel") String tel ,@RequestParam("qq") String qq,Model model){ 
+
+
+    logger.info("hanghangwudi");
+    User user =new User(); 	 
+    user.setTel(tel);
+    user.setQq(qq);
+	 user.setUsername(username);
+	 user.setPassword(password);
+	 iUserService.insert(user);
+   
+	 return "login";
+}
+} 
 //	@RequestMapping(value="index.do") 
 //	 public void index_jsp(Model model){ 
 //	  
 //	 } 
 //    
 
-}
+
 
