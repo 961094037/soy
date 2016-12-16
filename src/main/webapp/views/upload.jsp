@@ -95,6 +95,11 @@
 			'swf'      : 'uploadify/uploadify.swf',
 			'uploader' : '<%=request.getContextPath()%>/upload.do/uploadfile.do',
 			
+			
+			//上传数据
+	//		'formData'  : {'filesize':6666},
+			
+			
 			//是否自动上传 true or false
 	//	    'auto':false
 			
@@ -116,10 +121,10 @@
            'queueID':'uploadfileQueue',
            
  	      //在浏览窗口底部的文件类型下拉菜单中显示的文本
-           'fileTypeDesc':'支持的格式：',
+      //     'fileTypeDesc':'支持的格式：',
 
        		        //允许上传的文件后缀
-           'fileTypeExts':'*.jpg;*.jpge;*.gif;*.png',
+      //     'fileTypeExts':'*.jpg;*.jpge;*.gif;*.png',
            
            /*上传文件的大小限制允许上传文件的最大 大小。 这个值可以是一个数字或字 符串。
            如果它是一个字符串，它接受一个单位(B, KB, MB, or GB)。
@@ -153,9 +158,10 @@
 	</script>
 </head>
 <body>
-<input type="file" name="file_upload" id="file_upload" />
+<input type="file" name="file_upload" id="file_upload" value="666"/>
  <div id="uploadfileQueue"></div> 
 <input type="button" value="上传" onclick="doUpload()"/>
 <input type="button" value="取消" onclick="closeLoad()" />
+<a href="E:/diskfile/e39b08cc4c384271927cc649feab6508bd140448.zip">按此下载</a>
 </body>
 </html>
