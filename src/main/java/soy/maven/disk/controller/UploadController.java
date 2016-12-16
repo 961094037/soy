@@ -29,7 +29,8 @@ public class UploadController {
 	public String uploadFile(@RequestParam("pic")CommonsMultipartFile pic,HttpServletRequest req,HttpServletResponse response) throws IOException{
 		
 		//设置文件保存的本地路径
-		String filePath =req.getSession().getServletContext().getRealPath("/")+"uploadfile/";
+	//	String filePath =req.getSession().getServletContext().getRealPath("/")+"uploadfile/";
+		String filePath ="E:/diskfile/";
 	    logger.info(filePath);
 		String fileName = pic.getOriginalFilename();
 

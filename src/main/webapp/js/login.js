@@ -1,6 +1,6 @@
 // JavaScript Document
 function goregister(){
-	window.location.href="/regist.do";}
+	window.location.href="regist.do";}
 /*	
 function checkn(){
 	var lname = document.forms[0].lname.value;

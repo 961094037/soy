@@ -5,6 +5,7 @@ import javax.json.Json;
 import javax.json.JsonArray;
 import javax.json.JsonObject;
 import javax.servlet.http.HttpServletRequest;
+import javax.swing.text.View;
 
 import org.apache.log4j.Logger;
 import org.omg.CORBA.PRIVATE_MEMBER;
@@ -40,14 +41,17 @@ public class LoginController {
 public String regist(@RequestParam("username") String username ,@RequestParam("password") String password,@RequestParam("tel") String tel ,@RequestParam("qq") String qq,Model model){ 
 
 
-    logger.info("hanghangwudi");
-    User user =new User(); 	 
-    user.setTel(tel);
-    user.setQq(qq);
+     logger.info("hanghangwudi");
+     User user =new User(); 	 
+     user.setTel(tel);
+     user.setQq(qq);
 	 user.setUsername(username);
 	 user.setPassword(password);
 	 iUserService.insert(user);
-   
+     
+	 model.addAttribute("username",username);
+	 
+	 
 	 return "login";
 }
 } 
