@@ -14,4 +14,10 @@ public interface IUserDao {
     int updateByPrimaryKeySelective(User record);
 
     int updateByPrimaryKey(User record);
+    
+    int selectByUserName(String Username);
+    
+    String selectPasswordByName(String userName);
+    
+    int selectIdByUserName(String username);
 }

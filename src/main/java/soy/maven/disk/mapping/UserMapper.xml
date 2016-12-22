@@ -8,6 +8,16 @@
     <result column="tel" jdbcType="VARCHAR" property="tel" />
     <result column="qq" jdbcType="VARCHAR" property="qq" />
   </resultMap>
+  <select id="selectByUserName" parameterType="java.lang.String" resultType="java.lang.Integer">
+   select count(*) from user where username = #{username,jdbcType=VARCHAR} 
+   </select>
+   <select id="selectIdByUserName" parameterType="java.lang.String" resultType="java.lang.Integer">
+   select id from user where username = #{username,jdbcType=VARCHAR} 
+   </select>
+
+<select id="selectPasswordByName" parameterType="java.lang.String" resultType="java.lang.String">
+ select password from user where username = #{username,jdbcType=VARCHAR}
+  </select>
   <sql id="Base_Column_List">
     id, username, password, tel, qq
   </sql>

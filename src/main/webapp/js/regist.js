@@ -1,4 +1,4 @@
-// JavaScript Document
+﻿// JavaScript Document
 
 function isL(){//检查密码
 	var pass1 = document.forms[0].stpassword.value;
@@ -11,26 +11,29 @@ function isL(){//检查密码
 		return false;}
 	}
 	
-function isP(){//是否为1开头的手机号格式
-	var regu = /^1[358][0123456789]\d{8}$/; ;
-	var re = new RegExp(regu);
-	var pnum = document.forms[0].phone.value;
+function isPP(){
+	var pattern = /^(13[0-9]|14[5|7]|15[0|1|2|3|5|6|7|8|9]|18[0|1|2|3|5|6|7|8|9])\d{8}$/,
+	str = document.forms[0].phone.value;
+//	console.log(pattern.test(str));
 	var pspan = document.getElementById("pspan");
-	if(re,test(pnum)) return true;
-	else{
-		pspan.innerHTML = "手机号码格式不正确";
+	if (!pattern.test(str)){
+		pspan.innerHTML = "号码格式不不正确";
 		return false;}
-	}
-	
-function isN(s){//验证是否为纯数字
-	var regu = "^[0-9]+$";
-	var re = new RegExp(regu);
+	else{
+		pspan.innerHTML = " ";
+		return true;}}
+
+
+function isN(){//验证是否为纯数字
+	var pattern = /^\d{6,10}$/;
 	var qnum = document.forms[0].qq.value;
 	var qspan = document.getElementById("qspan");
-	if(re.test(qspan)) return true;
-	else{
-		qspan.innerHTML = "qq号码只能为纯数字";
+	if(!pattern.test(qnum)) {
+		qspan.innerHTML = "qq号为6-10位数字";
 		return false;}
+	else{
+		qspan.innerHTML = " ";
+		return true;}
 	}
 	
 function isSame(){//判断密码两次输入是否相同
@@ -45,8 +48,14 @@ function isSame(){//判断密码两次输入是否相同
 		return true;}
 	}
 
+function check(){
+	if($("#s0span").html()=="用户名可以使用")
+		return true;
+}
+
+
 function mainCheck(){
-	if(isL() && true && true) 
+	if(isL() && isN() && isPP() && isSame() && check()) 
 		{
 		
 		alert("注册成功");

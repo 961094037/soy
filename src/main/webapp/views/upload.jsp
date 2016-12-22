@@ -1,99 +1,20 @@
-<!--  <!DOCTYPE html>
-
-			$('#file_upload').uploadify({
-				
-		        
-
-			   
-		      //附带值 JSON对象数据，将与每个文件一起发送至服务器端。
-		        //如果为动态值，请在onUploadStart()中使用settings()方法更改该JSON值
-	  //     'formData':{       //可以不写
-		//    	   'user.username':'',
-		//    	   'user.age':''
-		//    	   },  
-		//    	    'onUploadStart': function(file) { 
-		//    	    	var name=$('#username').val();
-	//	    	    	var age=$('#age').val();
-		//    	    	$("#file_upload").uploadify(
-	//	    	    	"settings", 
-	//	    	    	"formData", 
-	//	    	    	{'user.username':name,'user.age':age});
-	//	    	    	}, 
-		    	
-		   
-
-		        
-		      //将要上传的文件对象的名称 必须与后台controller中抓取的文件名保持一致    
-		//        'fileObjName':'pic',
-		        
-		      //上传地址
-		        'uploader':'uploadify.php'
-		        
-	
-		        
-		        
-		 
-		        
-		        
-		      //选择上传文件后调用
-	//	        'onSelect' : function(file) {
-		              //alert("123");    
-	//	        },
-
-		        //返回一个错误，选择文件的时候触发
-	//	        'onSelectError':function(file, errorCode, errorMsg){
-	//	            switch(errorCode) {
-	//	                case -100:
-	//	                    alert("上传的文件数量已经超出系统限制的"
-	//	                     +$('#file_upload').uploadify('settings','queueSizeLimit')+"个文件！");
-	//	                    break;
-//
-	//	                case -110:
-	//	                    alert("文件 ["+file.name+"] 大小超出系统限制的"
-	//	                     +$('#file_upload').uploadify('settings','fileSizeLimit')+"大小！");
-	//	                    break;
-
-	//	                case -120:
-	//	                    alert("文件 ["+file.name+"] 大小异常！");
-	//	                    break;
-//
-	//	                case -130:
-	//	                    alert("文件 ["+file.name+"] 类型不正确！");
-	//	                    break;
-	//	            }
-	//	        },
-
-		       
-		    });
-
-		});
-
-		        
-		        
-		       
-		  
-	        
-	        
-	      
-	        
-	</script>
-</head>
-<body>
-</body>
-</html>
--->
-<!DOCTYPE html>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8" %>
+    <%@page import="soy.maven.disk.pojo.File"%>
+    <%@page import="java.util.*"%>
+    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
 	<title>My Uploadify Implementation</title>
-	<link rel="stylesheet" type="text/css" href="uploadify/uploadify.css">
-	<script type="text/javascript" src="uploadify/jquery-3.1.1.js"></script>
-	<script type="text/javascript" src="uploadify/jquery.uploadify.min.js"></script>
+	<link rel="stylesheet" type="text/css" href="<%=request.getContextPath() %>/uploadify/uploadify.css">
+	<script type="text/javascript" src="<%=request.getContextPath() %>/uploadify/jquery-3.1.1.js"></script>
+	<script type="text/javascript" src="<%=request.getContextPath() %>/uploadify/jquery.uploadify.min.js"></script>
 	<script type="text/javascript">
 	$(function() {
 		$('#file_upload').uploadify({
 			'swf'      : 'uploadify/uploadify.swf',
-			'uploader' : '<%=request.getContextPath()%>/upload.do/uploadfile.do',
+			'uploader' : '<%=request.getContextPath()%>/main.do/uploadfile.do',
 			
 			
 			//上传数据
@@ -154,14 +75,78 @@
         //åæ­¢ä¸ä¼   
         function closeLoad() {  
             $('#file_upload').uploadify('cancel', '*');  
-        }  
+        }  	
+        
 	</script>
 </head>
 <body>
+<form action="<%=request.getContextPath()%>/main.do/donwload.do" id="forsub" method="post">
+<input  type="text" name="filename" id="filename"    />
+</form>
 <input type="file" name="file_upload" id="file_upload" value="666"/>
  <div id="uploadfileQueue"></div> 
 <input type="button" value="上传" onclick="doUpload()"/>
 <input type="button" value="取消" onclick="closeLoad()" />
-<a href="E:/diskfile/e39b08cc4c384271927cc649feab6508bd140448.zip">按此下载</a>
+<input type="text" value="取消" onBlur="oo()">
+
+<table id="tabletest">
+       <tr><th>名字</th><th>说明</th><th>图片预览</th></tr>
+        
+     </table>
+
+	   <script>
+	   function oo(){
+       	$.post("<%=request.getContextPath()%>/66upload.do",
+       			function (list,status,xhr){
+       		    var item; 
+       		    $.each(list,function(i,result){ 
+       		  
+       		     item = "<tr><td>"+result['filename']+"</td><td>"+result['filesize']+"</td><td>"+"<input type='button' onclick='sub(this)'>"+"</td></tr>"; 
+       		        $('#tabletest').append(item); 
+       		 
+       	        });
+       });
+	   }
+	   
+	   function sub(h){
+		   $("#filename").val(
+				element(h)   
+		   );
+		   $("#forsub").submit();
+	   }
+	   
+	   //发送当前行文件名
+	   function element(h){
+		    var hang2= this.getRowObj(h);
+		    var hang=getRowNo(hang2);
+	        alert (hang);
+	        var filename=$("#tabletest").find("tr").eq(hang).find("td").eq(0).text();		
+            
+	        return filename;
+	  
+	   }
+	   //获得行元素
+	   function getRowObj(obj)
+	   {
+	   var i = 0;
+	   while(obj.tagName.toLowerCase() != "tr"){
+	   obj = obj.parentNode;
+	   if(obj.tagName.toLowerCase() == "table")return null;
+	   }
+	   return obj;
+	   }
+	   //获得当前行数
+	   function getRowNo(obj){
+		   var trObj = getRowObj(obj);
+		   var trArr = trObj.parentNode.children;
+		   for(var trNo= 0; trNo < trArr.length; trNo++){
+		   if(trObj == trObj.parentNode.children[trNo]){
+		     return trNo;
+		   }
+		   }
+		   }
+	   </script>
+
+ 
 </body>
 </html>

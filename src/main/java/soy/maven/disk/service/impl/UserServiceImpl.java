@@ -30,6 +30,23 @@ public class UserServiceImpl implements IUserService{
 		return this.userDao.insert(user);
 	}
    
+	@Override
+	public int getUserNumByName(String userName) {
+		// TODO Auto-generated method stub
+		return this.userDao.selectByUserName(userName);
+	}
 
+	@Override
+	public String selectPasswordByName(String userName) {
+		// TODO Auto-generated method stub
+		return this.userDao.selectPasswordByName(userName);
+	}
+
+	@Override
+	public int selectIdByUserName(String username) {
+		// TODO Auto-generated method stub
+		return this.userDao.selectIdByUserName(username);
+	}
+   
 
 }

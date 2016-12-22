@@ -5,13 +5,30 @@
     <result column="userid" property="userid" jdbcType="INTEGER" />
     <result column="filename" property="filename" jdbcType="VARCHAR" />
     <result column="fileurl" property="fileurl" jdbcType="VARCHAR" />
-    <result column="filesize" property="filesize" jdbcType="DOUBLE" />
+    <result column="filesize" property="filesize" jdbcType="VARCHAR" />
   </resultMap>
+  <delete id="deletebyfilename" >
+    delete from file
+    where filename = #{1}
+    and  userid = #{0}
+  </delete>
+  
+   <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select *
+    from file
+    where userid = #{userid,jdbcType=INTEGER}
+  </select>
+  <select id="selectfileurl"  resultType="java.lang.String">
+    select fileurl
+    from file
+    where filename = #{1}
+    and  userid = #{0}
+  </select>
   <insert id="insert" parameterType="soy.maven.disk.pojo.File" >
     insert into file (userid, filename, fileurl, 
       filesize)
     values (#{userid,jdbcType=INTEGER}, #{filename,jdbcType=VARCHAR}, #{fileurl,jdbcType=VARCHAR}, 
-      #{filesize,jdbcType=DOUBLE})
+      #{filesize,jdbcType=VARCHAR})
   </insert>
   <insert id="insertSelective" parameterType="soy.maven.disk.pojo.File" >
     insert into file
@@ -40,7 +57,7 @@
         #{fileurl,jdbcType=VARCHAR},
       </if>
       <if test="filesize != null" >
-        #{filesize,jdbcType=DOUBLE},
+        #{filesize,jdbcType=VARCHAR},
       </if>
     </trim>
   </insert>

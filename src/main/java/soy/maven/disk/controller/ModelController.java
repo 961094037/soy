@@ -17,6 +17,8 @@ public class ModelController {
 	@RequestMapping(value="upload.do") 
 	 public void upload_jsp(Model model){ 
 	 } 
-	
+	@RequestMapping(value="main.do") 
+	 public void main_jsp(Model model){ 
+	 } 
 
 }

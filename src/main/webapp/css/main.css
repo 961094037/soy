@@ -1,0 +1,36 @@
+@charset "utf-8";
+/* CSS Document */
+
+#qqq{width:1300px;margin-left:auto;margin-right:auto;position:relative;}
+#mainbody{width:1200px;background-color:#666;
+	background-color:#8ED7CF;background-size:cover;float:right;}
+.middle{position:relative;}
+.logo{margin-left:22px;float:left;}
+.headright{margin:40px 0 30px 0;}
+.bodyleft{width:200px;padding:10px;height:560px;}
+.bodyright{margin-left:auto;right:0px;border-radius:10px;
+	border: 2px solid #999;
+	height:581px;background-color:#E4EFFE;
+	position:absolute;top:0;left:200px;right:10px;}
+.data{padding:17px 40px;font-size:16px;color:#000;}
+.smallb{width:80px;height:40px;border:hidden;border-radius:5px;background-color:#099;color:#FFF;font-size:16px;margin:auto 10px;}
+.smalla{width:80px;height:40px;border:hidden;border-radius:5px;background-color:#999;color:#FFF;font-size:16px;margin:auto 10px;}
+.table{height:20px;padding:10px 30px;}
+.picsize{heigth:20px;width:20px;}
+.changedata{background-color:#099;padding:25px 40px;font-size:16px;color:#FFF;font-weight:bold;
+	border-top-left-radius:5px;border-bottom-left-radius:5px;}
+.changel{height:20px;padding:10px 30px;background-color:#CCC;}
+#mask{	background-color:#000;opacity:0.75;filter:alpha(opacity:75);	height:100%;width:100%;	position:absolute;top:0;left:0;	z-index:1000;	}
+#uploadd{	position:fixed;	left:20%;top:20%;	z-index:1001;}
+.updd{	width:650px;height:400px;	background-color:#CCC;	border:#333 thin;border-radius:10px;position:relative;}
+.closedd{position:absolute;top:5px;right:5px;width:20px;height:20px;cursor:pointer;opacity:0.75;filter:alpha(opacity:75);}
+.showup{width:500px;height:300px;background-color:#FFF;border-radius:5px;border:#666 1px solid;}
+.yesok1{color:#000;font-size:12px;margin:0 10px;font-weight:bold;}
+.yesok2{color:#033;font-size:12px;text-decoration:underline;margin:0 10px;}
+.mymassage{position:absolute;top:0;right:10px;}
+.fname{align:left;width:750px;padding-left:50px;}
+.fsize{width:50px;}
+.fdown{height:40px;width:40px;margin:0;}
+.fup{height:40px;width:40px;margin:0;}
+.leftl{top:100px;}
+.oneone{left:100px;}

@@ -7,7 +7,7 @@ public class File {
 
     private String fileurl;
 
-    private Double filesize;
+    private String filesize;
 
     public Integer getUserid() {
         return userid;
@@ -33,11 +33,11 @@ public class File {
         this.fileurl = fileurl == null ? null : fileurl.trim();
     }
 
-    public Double getFilesize() {
+    public String getFilesize() {
         return filesize;
     }
 
-    public void setFilesize(Double filesize) {
-        this.filesize = filesize;
+    public void setFilesize(String filesize) {
+        this.filesize = filesize == null ? null : filesize.trim();
     }
 }
